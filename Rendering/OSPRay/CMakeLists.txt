@@ -12,6 +12,7 @@ set(Module_SRCS
   vtkOSPRayMaterialLibrary.cxx
   vtkOSPRayPass.cxx
   vtkOSPRayPolyDataMapperNode.cxx
+  vtkOSPRayVolumeCache.cxx
   vtkOSPRayVolumeMapper.cxx
   vtkOSPRayVolumeMapperNode.cxx
   vtkOSPRayTetrahedraMapperNode.cxx
@@ -25,13 +26,6 @@ vtk_add_override(vtkOSPRayVolumeInterface vtkOSPRayVolumeMapper)
 vtk_object_factory_configure("${vtk_module_overrides}")
 list(APPEND Module_SRCS
   ${CMAKE_CURRENT_BINARY_DIR}/${vtk-module}ObjectFactory.cxx)
-set_source_files_properties(
-  ${vtk-module}ObjectFactory.cxx
-  vtkOSPRayMaterialHelpers.cxx
-  PROPERTIES
-    WRAP_EXCLUDE 1
-    WRAP_EXCLUDE_PYTHON 1
-  )
 
 vtk_module_library(vtkRenderingOSPRay ${Module_SRCS})
 
